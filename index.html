@@ -1,0 +1,17 @@
+<html>  
+    <head>  
+        <title>Esports Dashboard</title>
+        <script type="module" src="main.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body id="app" :class="{dark: dark}"> 
+        <header class="main">
+            <button class="lk" 
+                @click="toggleDark"
+                v-text="dark ? 'Light' : 'Dark'"
+                ></button>
+        </header>
+    </body>
+</html>
+
