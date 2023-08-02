@@ -1,7 +1,28 @@
+
+<script src="https://unpkg.com/petite-vue" defer init></script>
+
+<script type="module" lang="js">
+    import { createApp } from 'https://unpkg.com/petite-vue?module'
+    import { get } from './node_modules/axios'
+    
+    createApp({
+        dark: false,
+
+        toggleDark() {
+            this.dark = !this.dark
+        },
+
+        onMounted() {
+            // Log page access
+            console.log("Mounted!")
+        }
+    }).mount()
+</script>
+
 <html>  
     <head>  
         <title>Esports Dashboard</title>
-        <script type="module" src="main.js"></script>
+
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -13,5 +34,9 @@
                 ></button>
         </header>
     </body>
-</html>
 
+    <div v-scope="{ count: 0 }">
+        {{ count }}
+        <button @click="count++">inc</button>
+      </div>
+</html>
