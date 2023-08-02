@@ -2,7 +2,7 @@
  
 A SAAS project for an Esports Dashboard website.
 
-# Feature List:
+## Feature List:
 free esports dashboard website<br>
 customized dashboards which are saved to your user<br>
 choose from dashboards for various esports<br>
@@ -16,7 +16,7 @@ stretch goal - weekly/daily email summaries<br>
 stretch goal - notifications for subscribed events<br>
 stretch goal - payments<br>
 
-# Tech Stack:
+## Tech Stack:
 Backend: Firebase Cloud Functions (Node.JS)<br>
 DevOps: GitHub<br>
 CI/CD: GitHub Actions<br>
@@ -25,7 +25,7 @@ Frontend: Petite-Vue, Bootstrap<br>
 Ads: Google Ads<br>
 Payments: Stripe<br>
 
-# Steps to Implementation:
+## Steps to Implementation:
 -Dashboard<br>
 -Ads<br>
 -Firebase integration<br>
