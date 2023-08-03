@@ -23,14 +23,14 @@
     <body>  
         <div :style="{ background: backgroundColor, height: '100vh', margin: count }">
 
-        <div id="app" :style="{ margin: 20 }"> 
+        <div id="app" :style="{ background: backgroundColor, height: '100vh', margin: 20 }"> 
             <header class="main">
                 <button class="lk" 
                     @click="toggleDarkMode"
                     v-text="backgroundColor === 'white' ? 'Light' : 'Dark'"
                     ></button>
                     
-                <div>
+                <div :style="{ color: backgroundColor === 'white' ? 'black' : 'white' }">
                     {{ count }}
                     <button @click="count++">inc</button>
                     </div>
