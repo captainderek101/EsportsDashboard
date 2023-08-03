@@ -1,43 +1,27 @@
-
-<script src="https://unpkg.com/petite-vue" defer init></script>
-
-<style>
-    [v-cloak] {
-      display: none;
-    }
-  </style>
-  
-<script type="module" lang="js">
-    import { createApp } from 'https://unpkg.com/petite-vue?module'
-    // import { get } from './node_modules/axios'
-
-    const store = reactive({
-        backgroundColor: 'white',
-    })
-    
-    createApp({
-        toggleDarkMode() {
-            store.backgroundColor = store.backgroundColor === 'white' ? 'black' : 'white'
-            console.log(store.backgroundColor)
-        },
-
-        onMounted() {
-            // Log page access
-            console.log("Mounted!")
-        }
-    }).mount('#app')
-</script>
-
 <html> 
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/petite-vue?module'
+        // import { get } from './node_modules/axios'
+        
+        createApp({
+            backgroundColor: 'white',
+            count: 0,
+
+            toggleDarkMode() {
+                this.backgroundColor = this.backgroundColor === 'white' ? 'black' : 'white'
+                console.log(this.backgroundColor)
+            }
+        }).mount('#app')
+    </script>
+
     <head>  
         <title>Esports Dashboard</title>
 
         <link rel="stylesheet" href="style.css">
     </head>
      
-    <body v-scope>  
-        <div>
-            <style>style { background: {store.backgroundColor}; height: '100vh'; margin: 0 }</style>
+    <body>  
+        <div :style="{ background: backgroundColor, height: '100vh', margin: count }">
 
         <div id="app" :style="{ margin: 20 }"> 
             <header class="main">
@@ -46,7 +30,7 @@
                     v-text="backgroundColor === 'white' ? 'Light' : 'Dark'"
                     ></button>
                     
-                <div v-scope="{ count: 0 }">
+                <div>
                     {{ count }}
                     <button @click="count++">inc</button>
                     </div>
