@@ -1,42 +1,42 @@
+<html> 
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/petite-vue?module'
+        // import { get } from './node_modules/axios'
+        
+        createApp({
+            backgroundColor: 'white',
+            count: 0,
 
-<script src="https://unpkg.com/petite-vue" defer init></script>
+            toggleDarkMode() {
+                this.backgroundColor = this.backgroundColor === 'white' ? 'black' : 'white'
+                console.log(this.backgroundColor)
+            }
+        }).mount('#app')
+    </script>
 
-<script type="module" lang="js">
-    import { createApp } from 'https://unpkg.com/petite-vue?module'
-    import { get } from './node_modules/axios'
-    
-    createApp({
-        dark: false,
-
-        toggleDark() {
-            this.dark = !this.dark
-        },
-
-        onMounted() {
-            // Log page access
-            console.log("Mounted!")
-        }
-    }).mount()
-</script>
-
-<html>  
     <head>  
         <title>Esports Dashboard</title>
 
         <link rel="stylesheet" href="style.css">
     </head>
+     
+    <body>  
+        <div :style="{ background: backgroundColor, height: '100vh', margin: count }">
 
-    <body id="app" :class="{dark: dark}"> 
-        <header class="main">
-            <button class="lk" 
-                @click="toggleDark"
-                v-text="dark ? 'Light' : 'Dark'"
-                ></button>
-        </header>
+        <div id="app" :style="{ background: backgroundColor, height: '100vh', margin: 20 }"> 
+            <header class="main">
+                <button class="lk" 
+                    @click="toggleDarkMode"
+                    v-text="backgroundColor === 'white' ? 'Light' : 'Dark'"
+                    ></button>
+                    
+                <div :style="{ color: backgroundColor === 'white' ? 'black' : 'white' }">
+                    {{ count }}
+                    <button @click="count++">inc</button>
+                    </div>
+            </header>
+
+
+        </div>
     </body>
-
-    <div v-scope="{ count: 0 }">
-        {{ count }}
-        <button @click="count++">inc</button>
-      </div>
 </html>
